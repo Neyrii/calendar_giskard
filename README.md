@@ -5,6 +5,7 @@ Then from the root launch
 ```
 docker compose up
 ```
+Then, the application will be available on **localhost:3000**
 
 To create new availabilities, you will need a password.
 *hint: It's very simple G\*\*\*\*\*d*.
