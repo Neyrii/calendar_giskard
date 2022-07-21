@@ -11,6 +11,7 @@ To create new availabilities, you will need a password.
 *hint: It's very simple G*****d.
 
 For the stack, I used **nodejs** for the backend **mongodb** for the database.
+
 For the frontend, I misscalculated the work, so I did plain html with **twig** templates.
 
 I also used **bootstrap** to have quickly a nice looking visual.
