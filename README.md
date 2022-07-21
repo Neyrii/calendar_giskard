@@ -9,6 +9,8 @@ docker compose up
 To create new availabilities, you will need a password.
 *hint: It's very simple G\*\*\*\*\*d*.
 
+Every functionnality is present, you can add availabilities and delete them, you can have a visual look at the calendar. You can also add events with a visual list of every availability and delete them by clicking on them and add your email address.
+
 For the stack, I used **nodejs** for the backend **mongodb** for the database.
 
 For the frontend, I misscalculated the work, so I did plain html with **twig** templates.
