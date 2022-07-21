@@ -7,7 +7,7 @@ docker compose up
 ```
 
 To create new availabilities, you will need a password.
-*hint: It's very simple G*****d.
+*hint: It's very simple G\*\*\*\*\*d*.
 
 For the stack, I used **nodejs** for the backend **mongodb** for the database.
 
