@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8' />
+
+
+<link href='/css/main.min.css' rel='stylesheet'/>
+<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet'>
+<link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css' rel='stylesheet'>
+<script src='/js/main.min.js'></script>
+<script type:"text/javascript">
+
+	const a = {{ availability }}
+	const r = {{ reservations }}
+	const events = a.map(elt => {
+		return {
+			display: 'background',
+			start: elt.start,
+			end: elt.end
+		}
+	})
+	r.forEach(elt => {
+		events.push({
+			title: elt.title,
+			start: elt.start,
+			end: elt.end
+		})
+	})
+	console.log(events)
+
+	document.addEventListener('DOMContentLoaded', function() {
+	let alertElt = document.getElementById('alert')
+    var calendarEl = document.getElementById('calendar');
+
+
+
+	function eventclick(e) {
+		if (e.event.title === "") // If it's not an event but an availability
+			retunr
+		let strAlert = e.el.fcSeg.eventRange.def.title + '</br>'
+		let start = e.event.start
+		let end = e.event.end
+		// Three forms element for rediretions
+		let startHidden = document.getElementById('startHidden')
+		startHidden.value = start
+		let endHidden = document.getElementById('endHidden')
+		endHidden.value = end
+		let formDelete = document.getElementById('formDelete')
+		
+		// strAlert is the text on the alert message
+		strAlert += start.toLocaleDateString('fr-Fr') +  ' ' + start.toLocaleTimeString("fr-FR").slice(0, -3) + ' - '+ end.toLocaleDateString('fr-Fr') +  ' ' + end.toLocaleTimeString("fr-FR").slice(0, -3) + '</br>'
+		strAlert += '<a onclick=\'formDelete.classList=""\' class="bi bi-trash-fill text-danger bi-5x"></a>'
+		alertElt.classList = 'd-flex alert alert-primary justify-content-around align-items-center'
+		alertElt.innerHTML = strAlert
+	}
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+		height: 720,
+		timeZone: 'Europe/Paris',
+		eventColor: 'rgb(119,162,248)',
+		headerToolbar: {
+		left: 'prev,next today',
+		center: 'title',
+		right: 'dayGridMonth,timeGridWeek,timeGridDay'
+		},
+		locale: 'fr',
+		eventClick: eventclick,
+		initialView: 'dayGridMonth',
+		navLinks: true, // can click day/week names to navigate views
+		nowIndicator: true,
+		themeSystem: 'bootstrap5',
+		events: events
+	});
+
+    calendar.render();
+});
+
+</script>
+<style>
+
+body {
+    padding: 0;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    font-size: 14px;
+  }
+  #calendar{
+	margin: 0 auto;
+  }
+
+
+
+</style>
+</head>
+<body>
+<div class="container mt-2">
+	<div class="d-flex justify-content-between mb-2">
+		<div class="d-flex">	
+			<a class="btn btn-primary" href="/">Thomas Abou's Calendar</a>
+			<a class="btn btn-primary mx-2" href="/event/add"> Add An Event</a>
+		</div>
+		<div class="d-flex">
+			<a class="btn btn-secondary mx-2" href="/availability/delete"> Delete An Availability</a>
+			<a class="btn btn-secondary " href="/availability/add"> Add An Availability</a>
+		</div>
+	</div>
+	{% if msg is defined %}
+		<h5 class="border border-danger rounded text-center"> {{ msg }}</h5>
+	{% endif %}
+	<div id="alert"></div>
+	<form class="d-none" action="/event/delete"  id="formDelete" method="POST">
+		<div class="d-flex m-1 justify-content-center" >
+			<div class="form-group">
+				<input type="email" class="form-control" name="email" placeholder="email">
+			</div>
+			<input type="hidden" name="start" id="startHidden">
+			<input type="hidden" name="end" id="endHidden">
+			<input type="hidden" name="password" value="Giskard">
+			<button type="submit" class="btn btn-primary" id="delete" >delete</button>
+		</div>
+	</form>
+	
+	<div id='calendar'></div>
+</div>
+</body>
+</html>

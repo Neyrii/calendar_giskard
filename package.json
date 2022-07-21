@@ -1,0 +1,23 @@
+{
+  "name": "calendar_assignment",
+  "version": "1.0.0",
+  "description": "My own Calendar for my (very) busy life",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "Thomas Abou",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "dotenv": "^16.0.1",
+    "twig": "^1.15.4",
+    "mongoose": "^5.13.14",
+    "body-parser": "^1.20.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
