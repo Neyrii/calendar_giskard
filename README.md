@@ -5,7 +5,6 @@ Then from the root launch
 ```
 docker compose up
 ```
-r
 
 To create new availabilities, you will need a password.
 *hint: It's very simple G*****d.
