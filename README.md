@@ -20,4 +20,4 @@ I also used **bootstrap** to have quickly a nice looking visual.
 I **dockerized** using the most recent image of mongo and node:18-alpine.
 
 If you have any questions, you can send me a mail at
-> thomas.abou@epita.f
+> thomas.abou@epita.fr
