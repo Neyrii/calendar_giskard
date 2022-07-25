@@ -8,7 +8,7 @@ docker compose up
 Then, the application will be available on **localhost:3000**
 
 To create new availabilities, you will need a password.
-*hint: It's very simple G\*\*\*\*\*d*.
+*hint: It's very simple Gi\*\*\*rd*.
 
 Every functionnality is present, you can add availabilities and delete them, you can have a visual look at the calendar. You can also add events with a visual list of every availability and delete them by clicking on them and add your email address.
 
